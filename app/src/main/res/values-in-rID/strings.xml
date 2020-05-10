@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Football</string>
+    <string name="language">Bahasa</string>
+    <string name="notification">Notifikasi</string>
+    <string name="formation">Formasi</string>
+    <string name="red_card">Kartu Merah</string>
+    <string name="yellow_card">Kartu Kuning</string>
+    <string name="keeper">Kiper</string>
+    <string name="defense">Bertahan</string>
+    <string name="midfield">Gelandang</string>
+    <string name="forward">Depan</string>
+    <string name="subtitute">Pengganti</string>
+    <string name="goal_detail">Detail Gol</string>
+    <string name="shot">Tendangan</string>
+</resources>

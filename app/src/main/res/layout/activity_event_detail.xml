@@ -143,7 +143,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Goal Detail"
+                android:text="@string/goal_detail"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -186,7 +186,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shot"
+                android:text="@string/shot"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -229,7 +229,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Red Card"
+                android:text="@string/red_card"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -272,7 +272,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yellow Card"
+                android:text="@string/yellow_card"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -315,7 +315,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Keeper"
+                android:text="@string/keeper"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -358,7 +358,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Defense"
+                android:text="@string/defense"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -401,7 +401,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Midfield"
+                android:text="@string/midfield"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -444,7 +444,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Forward"
+                android:text="@string/forward"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -487,7 +487,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Subtitute"
+                android:text="@string/subtitute"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -530,7 +530,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Formation"
+                android:text="@string/formation"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:gravity="center"

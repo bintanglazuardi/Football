@@ -1,11 +1,15 @@
 package com.vokasi.football;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -328,5 +332,27 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
 
         startActivity(detailIntent);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.action_notification:
+                Intent intent = new Intent(this, NotificationActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_language:
+                Intent languageIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(languageIntent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
