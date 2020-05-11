@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
 
     private void parseNextJSON() {
         String url = "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328";
+//        String url = "https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id=441613";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -167,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
                                 String homeMidfield = event.optString("strHomeLineupMidfield", "-");
                                 String homeForward = event.optString("strHomeLineupForward", "-");
                                 String homeSubtitute = event.optString("strHomeLineupSubstitutes", "-");
-                                int homeFormation = event.optInt("strHomeFormation", 0);
+                                String homeFormation = event.optString("strHomeFormation", "-");
 
                                 String awayGoalDetail = event.optString("strAwayGoalDetails", "-");
                                 int awayShot = event.optInt("intAwayShots", 0);
@@ -178,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
                                 String awayMidfield = event.optString("strAwayLineupMidfield", "-");
                                 String awayForward = event.optString("strAwayLineupForward", "-");
                                 String awaySubtitute = event.optString("strAwayLineupSubstitutes", "-");
-                                int awayFormation = event.optInt("strAwayFormation", 0);
+                                String awayFormation = event.optString("strAwayFormation", "-");
 
 //                                String homeTeamLogo = parseSearchJSON(homeTeamName);
 //                                String awayTeamLogo = parseSearchJSON(awayTeamName);

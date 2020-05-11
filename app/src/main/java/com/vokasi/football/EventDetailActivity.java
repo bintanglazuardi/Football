@@ -93,7 +93,7 @@ public class EventDetailActivity extends AppCompatActivity {
         String homeMidfield = intent.getStringExtra(EXTRA_HOME_MIDFIELD);
         String homeForward = intent.getStringExtra(EXTRA_HOME_FORWARD);
         String homeSubtitute = intent.getStringExtra(EXTRA_HOME_SUBTITUTE);
-        int homeFormation = intent.getIntExtra(EXTRA_HOME_FORMATION,0);
+        String homeFormation = intent.getStringExtra(EXTRA_HOME_FORMATION);
 
         String awayGoalDetail = intent.getStringExtra(EXTRA_AWAY_GOAL_DETAIL);
         int awayShot = intent.getIntExtra(EXTRA_AWAY_SHOT, 0);
@@ -104,7 +104,7 @@ public class EventDetailActivity extends AppCompatActivity {
         String awayMidfield = intent.getStringExtra(EXTRA_AWAY_MIDFIELD);
         String awayForward = intent.getStringExtra(EXTRA_AWAY_FORWARD);
         String awaySubtitute = intent.getStringExtra(EXTRA_AWAY_SUBTITUTE);
-        int awayFormation = intent.getIntExtra(EXTRA_AWAY_FORMATION, 0);
+        String awayFormation = intent.getStringExtra(EXTRA_AWAY_FORMATION);
 
         //==========================================================================================
 
@@ -147,7 +147,8 @@ public class EventDetailActivity extends AppCompatActivity {
         detailAwayTeamName.setText(awayTeamName);
         detailHomeTeamScore.setText("" + homeTeamScore);
         detailAwayTeamScore.setText("" + awayTeamScore);
-        Picasso.with(this).load("https://www.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png").fit().centerInside().into(detailHomeTeamLogo);
+        Picasso.with(this).load("https://www.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png")
+                .fit().centerInside().into(detailHomeTeamLogo);
         Picasso.with(this).load(awayTeamLogo).fit().centerInside().into(detailAwayTeamLogo);
 
         detailHomeGoal.setText(homeGoalDetail);
@@ -159,7 +160,7 @@ public class EventDetailActivity extends AppCompatActivity {
         detailHomeMidfield.setText(homeMidfield);
         detailHomeForward.setText(homeForward);
         detailHomeSubtitute.setText(homeSubtitute);
-        detailHomeFormation.setText("" + homeFormation);
+        detailHomeFormation.setText(homeFormation);
 
         detailAwayGoal.setText(awayGoalDetail);
         detailAwayShot.setText("" + awayShot);
@@ -170,7 +171,7 @@ public class EventDetailActivity extends AppCompatActivity {
         detailAwayMidfield.setText(awayMidfield);
         detailAwayForward.setText(awayForward);
         detailAwaySubtitute.setText(awaySubtitute);
-        detailAwayFormation.setText("" + awayFormation);
+        detailAwayFormation.setText(awayFormation);
     }
 
     private String parseSearchJSON(String namaTeam) {
@@ -203,10 +204,10 @@ public class EventDetailActivity extends AppCompatActivity {
     }
 
     public void strAwayTeam(View view) {
-        Toast.makeText(this, "Home team : " + homeTeamLogo, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Home team : " + homeTeamLogo, Toast.LENGTH_SHORT).show();
     }
 
     public void strHomeTeam(View view) {
-        Toast.makeText(this, "Away team : " + awayTeamLogo, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Away team : " + awayTeamLogo, Toast.LENGTH_SHORT).show();
     }
 }

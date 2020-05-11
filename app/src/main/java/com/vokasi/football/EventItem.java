@@ -20,7 +20,7 @@ public class EventItem {
     private String mHomeMidfield;
     private String mHomeForward;
     private String mHomeSubtitute;
-    private int mHomeFormation;
+    private String mHomeFormation;
 
     private String mAwayGoalDetail;
     private int mAwayShot;
@@ -31,7 +31,7 @@ public class EventItem {
     private String mAwayMidfield;
     private String mAwayForward;
     private String mAwaySubtitute;
-    private int mAwayFormation;
+    private String mAwayFormation;
 
     private String mHomeTeamLogo;
     private String mAwayTeamLogo;
@@ -43,10 +43,10 @@ public class EventItem {
                      String mHomeGoalDetail, int mHomeShot, String mHomeRedCard,
                      String mHomeYellowCard, String mHomeKeeper, String mHomeDefense,
                      String mHomeMidfield, String mHomeForward, String mHomeSubtitute,
-                     int mHomeFormation, String mAwayGoalDetail, int mAwayShot,
+                     String mHomeFormation, String mAwayGoalDetail, int mAwayShot,
                      String mAwayRedCard, String mAwayYellowCard, String mAwayKeeper,
                      String mAwayDefense, String mAwayMidfield, String mAwayForward,
-                     String mAwaySubtitute, int mAwayFormation) {
+                     String mAwaySubtitute, String mAwayFormation) {
         this.mHomeTeamId = mHomeTeamId;
         this.mAwayTeamId = mAwayTeamId;
         this.mTanggalTanding = mTanggalTanding;
@@ -163,7 +163,7 @@ public class EventItem {
         return mHomeSubtitute;
     }
 
-    public int getmHomeFormation() {
+    public String getmHomeFormation() {
         return mHomeFormation;
     }
 
@@ -203,7 +203,7 @@ public class EventItem {
         return mAwaySubtitute;
     }
 
-    public int getmAwayFormation() {
+    public String getmAwayFormation() {
         return mAwayFormation;
     }
 }

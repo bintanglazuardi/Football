@@ -12,4 +12,6 @@
     <string name="formation">Formation</string>
     <string name="notification">Notification</string>
     <string name="language">Language</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
