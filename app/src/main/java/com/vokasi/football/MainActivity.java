@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -18,6 +19,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +34,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements EventAdapter.OnItemClickListener{
     public static final String EXTRA_HOME_TEAM_ID = "homeTeamId";
     public static final String EXTRA_AWAY_TEAM_ID = "awayTeamId";
+
+    private static final String TAG = "MainActivity";
 
     public static final String EXTRA_TANGGAL_TANDING = "tanggalTanding";
     public static final String EXTRA_JAM_TANDING = "jamTanding";
@@ -137,8 +145,8 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
     }
 
     private void parseNextJSON() {
-        String url = "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328";
-//        String url = "https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id=441613";
+//        String url = "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328";
+        String url = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4328";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -356,4 +364,5 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

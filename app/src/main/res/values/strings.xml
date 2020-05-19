@@ -14,4 +14,5 @@
     <string name="language">Language</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="fcm_token">FCM Token: %s</string>
 </resources>

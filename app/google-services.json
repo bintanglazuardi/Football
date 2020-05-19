@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "824505336308",
+    "firebase_url": "https://football-7a339.firebaseio.com",
+    "project_id": "football-7a339",
+    "storage_bucket": "football-7a339.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824505336308:android:0c5b93efe98718f3fcb9a1",
+        "android_client_info": {
+          "package_name": "com.vokasi.football"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824505336308-n4ac707g51lj1vgg907d6cdk2uro6tc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vokasi.football",
+            "certificate_hash": "431830f7ad74f21b180bd6bf1149b569e3c072d7"
+          }
+        },
+        {
+          "client_id": "824505336308-t32p3lecsu4ajckfbifhef743rvalno3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXaBYOW76gDzpekM2yEtbT0Kr71ej49XU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824505336308-t32p3lecsu4ajckfbifhef743rvalno3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
