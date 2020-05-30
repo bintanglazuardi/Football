@@ -353,6 +353,10 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         switch (id){
+            case R.id.action_notification:
+                Intent intent = new Intent(this, NotificationActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.action_language:
                 Intent languageIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
                 startActivity(languageIntent);
