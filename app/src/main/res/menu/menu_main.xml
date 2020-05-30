@@ -8,11 +8,5 @@
         android:title="@string/language"
         android:icon="@drawable/ic_language_white_24dp"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_notification"
-        android:orderInCategory="120"
-        android:title="@string/notification"
-        android:icon="@drawable/ic_notifications_white_24dp"
-        app:showAsAction="ifRoom" />
 
 </menu>
