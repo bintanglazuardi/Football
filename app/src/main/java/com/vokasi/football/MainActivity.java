@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
     public static final String EXTRA_AWAY_TEAM_NAME = "awayTeamName";
     public static final String EXTRA_HOME_TEAM_SCORE = "homeTeamScore";
     public static final String EXTRA_AWAY_TEAM_SCORE = "awayTeamScore";
-//    public static final String EXTRA_HOME_TEAM_LOGO = "homeTeamLogo";
-//    public static final String EXTRA_AWAY_TEAM_LOGO = "awayTeamLogo";
 
     public static final String EXTRA_HOME_GOAL_DETAIL = "homeGoalDetail";
     public static final String EXTRA_HOME_SHOT = "homeShot";
@@ -86,9 +84,6 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
 
         mEventList = new ArrayList<>();
 
-//        mRequestQueueLast = Volley.newRequestQueue(this);
-//        parseLastJSON();
-
         mRequestQueue = Volley.newRequestQueue(this);
         parseNextJSON();
 
@@ -96,56 +91,7 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
 
     }
 
-    private void parseLastJSON() {
-        String url = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4328";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("events");
-
-                            for (int i = jsonArray.length()-1; i >=0; i-- ){
-                                JSONObject event = jsonArray.getJSONObject(i);
-                                String homeTeamId = event.getString("idHomeTeam");
-                                String awayTeamId = event.getString("idAwayTeam");
-
-                                String tanggalTanding = event.getString("strDate");
-                                String jamTanding = event.getString("strTime");
-                                String homeTeamName = event.getString("strHomeTeam");
-                                String awayTeamName = event.getString("strAwayTeam");
-                                int homeTeamScore = event.optInt("intHomeScore",0);
-                                int awayTeamScore = event.optInt("intAwayScore",0);
-
-//                                String homeTeamLogo = parseSearchJSON(homeTeamName);
-//                                String awayTeamLogo = parseSearchJSON(awayTeamName);
-
-//                                mEventList.add(new EventItem(tanggalTanding, jamTanding, homeTeamName,
-//                                        awayTeamName, homeTeamScore, awayTeamScore));
-                            }
-
-                            mEventAdapter = new EventAdapter(MainActivity.this, mEventList);
-                            mRecyclerView.setAdapter(mEventAdapter);
-                            mEventAdapter.setOnItemClickListener(MainActivity.this);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        mRequestQueueLast.add(request);
-
-    }
-
     private void parseNextJSON() {
-//        String url = "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328";
         String url = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4328";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -189,11 +135,6 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
                                 String awaySubtitute = event.optString("strAwayLineupSubstitutes", "-");
                                 String awayFormation = event.optString("strAwayFormation", "-");
 
-//                                String homeTeamLogo = parseSearchJSON(homeTeamName);
-//                                String awayTeamLogo = parseSearchJSON(awayTeamName);
-
-//                                mEventList.add(new EventItem(tanggalTanding, jamTanding, homeTeamName,
-//                                        awayTeamName, homeTeamScore, awayTeamScore));
                                 mEventList.add(new EventItem(homeTeamId, awayTeamId,
                                         tanggalTanding, jamTanding, homeTeamName,
                                         awayTeamName, homeTeamScore, awayTeamScore,
@@ -225,77 +166,6 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
 
     }
 
-    private String[] parseTeamJSON(final String homeId, final String awayId) {
-        String teamUrl = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328";
-        final String[] arr = new String[2];
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, teamUrl, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("teams");
-
-                            for (int i = 0; i < jsonArray.length(); i++ ){
-                                JSONObject team = jsonArray.getJSONObject(i);
-                                String homeTeamId = team.getString("idTeam");
-                                String awayTeamId = team.getString("idTeam");
-
-                                if (homeTeamId.equals(homeId)){
-                                    String homeTeamLogo = team.getString("strTeamBadge");
-                                    arr[0] = homeTeamLogo;
-                                }
-                                if (awayTeamId.equals(awayId)){
-                                    String awayTeamLogo = team.getString("strTeamBadge");
-                                    arr[1] = awayTeamLogo;
-                                }
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-        mRequestQueue.add(request);
-
-        return arr;
-    }
-
-    private String parseSearchJSON(String namaTeam) {
-//        String searchUrl = "https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=Arsenal";
-        String searchUrl = "https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t="+namaTeam;
-        final String[] logoTeam = new String[1];
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, searchUrl, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("teams");
-                            JSONObject team = jsonArray.getJSONObject(0);
-                            logoTeam[0] = team.getString("strTeamBadge");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        mSearchRequestQueue.add(request);
-
-        return logoTeam[0];
-
-    }
-
     @Override
     public void onItemClick(int position) {
         Intent detailIntent = new Intent(this, EventDetailActivity.class);
@@ -310,8 +180,6 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
         detailIntent.putExtra(EXTRA_AWAY_TEAM_NAME, clickedItem.getmAwayTeamName());
         detailIntent.putExtra(EXTRA_HOME_TEAM_SCORE,  clickedItem.getmHomeTeamScore());
         detailIntent.putExtra(EXTRA_AWAY_TEAM_SCORE, clickedItem.getmAwayTeamScore());
-//        detailIntent.putExtra(EXTRA_HOME_TEAM_LOGO,  clickedItem.getmHomeTeamLogo());
-//        detailIntent.putExtra(EXTRA_AWAY_TEAM_LOGO, clickedItem.getmAwayTeamLogo());
 
         detailIntent.putExtra(EXTRA_HOME_GOAL_DETAIL,  clickedItem.getmHomeGoalDetail());
         detailIntent.putExtra(EXTRA_HOME_SHOT , clickedItem.getmHomeShot());
@@ -334,10 +202,6 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.OnIt
         detailIntent.putExtra(EXTRA_AWAY_FORWARD, clickedItem.getmAwayForward());
         detailIntent.putExtra(EXTRA_AWAY_SUBTITUTE,  clickedItem.getmAwaySubtitute());
         detailIntent.putExtra(EXTRA_AWAY_FORMATION, clickedItem.getmAwayFormation());
-
-//        Toast.makeText(this, tanggalTanding +"\n"+ jamTanding+"\n"+
-//                "HOME : ---------------- \n" + homeTeamId +"\n"+ homeTeamName+"\n"+ homeTeamLogo+"\n"+
-//                "AWAY : ---------------- \n" + awayTeamId +"\n"+ awayTeamName+"\n"+ awayTeamLogo+"\n", Toast.LENGTH_LONG).show();
 
         startActivity(detailIntent);
 
